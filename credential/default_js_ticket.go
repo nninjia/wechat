@@ -43,7 +43,7 @@ type ResTicket struct {
 // GetTicket 获取jsapi_ticket
 func (js *DefaultJsTicket) GetTicket(accessToken string) (ticketStr string, err error) {
 	// 先从cache中取
-	jsAPITicketCacheKey := fmt.Sprintf("%s_jsapi_ticket_%s", js.cacheKeyPrefix, js.appID)
+	jsAPITicketCacheKey := fmt.Sprintf("jsapi_ticket_%s", js.appID)
 	if val := js.cache.Get(jsAPITicketCacheKey); val != nil {
 		return val.(string), nil
 	}

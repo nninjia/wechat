@@ -63,7 +63,7 @@ func (ak *DefaultAccessToken) GetAccessToken() (accessToken string, err error) {
 // GetAccessTokenContext 获取access_token,先从cache中获取，没有则从服务端获取
 func (ak *DefaultAccessToken) GetAccessTokenContext(ctx context.Context) (accessToken string, err error) {
 	// 先从cache中取
-	accessTokenCacheKey := fmt.Sprintf("%s_access_token_%s", ak.cacheKeyPrefix, ak.appID)
+	accessTokenCacheKey := fmt.Sprintf("access_token_%s", ak.appID)
 	if val := ak.cache.Get(accessTokenCacheKey); val != nil {
 		return val.(string), nil
 	}
